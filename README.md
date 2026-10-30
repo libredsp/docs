@@ -1,6 +1,6 @@
 # LibreDSP docs
-This repository contains the sourcecode for the LibreDSP documenation built with mdbook.
-To view output of mdbook, please visit: [libredsp.github.io/docs](libredsp.github.io/docs)
+This repository contains the sourcecode for the LibreDSP documentation built with mdbook.
+To view the output of mdbook, please visit: [libredsp.github.io/docs](https://libredsp.github.io/docs)
 
 To build and compile the document yourself, first install mdbook, then clone the repo, and run:
 
