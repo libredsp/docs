@@ -2,3 +2,10 @@
 title = "LibreDSP Documentation"
 authors = ["Iman Alavi Fazel"]
 language = "en"
+
+[output.html]
+mathjax-support = true
+no-section-label = true
+
+[output.html.playground]
+runnable = false
