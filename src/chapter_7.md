@@ -1,3 +1,44 @@
+# Chapter 6 - Digital Filter Design
+In the last chapter, we saw that an LCCDE with the general form of:
+
+\\[
+\boxed{\sum_{k=0}^{N} a_k y[n-k] = \sum_{k=0}^{M} b_k x[n-k] , \qquad a_0 \neq 0}
+\\]
+
+with zero initial conditions performs frequency selective filtering on the input data and its transfer function is of rational form.
+Specifically, the DTFT of the \\(y[n]\\) would be computed as:
+
+\\[
+Y(e^{j\omega}) = H(e^{j\omega})X(e^{j\omega})
+\\]
+
+where \\(H(e^{j\omega})\\) is determined from the coefficients of the LCCDE.
+As a reminder it is also the DTFT of the impulse response of the system, because its inverse DTFT is the output of the LCCDE if the input is the delta, or the impulse function \\(\delta[n]\\).
+
+The art of "filter design" is to find coefficients \\(a_k\\)s and \\(b_k\\)s such that the LCCDE would perform the desired filtering operation.
+For the frequency-selective filters, that means the DTFT of the impulse response would have the desired values at different frequencies.
+After we find such coefficients, to compute the output of such a system, we can simply plug in the input signal \\(x[n]\\) in the above equation and obtain the output \\(y[n]\\).
+In LibreDSP, this can be done by invoking `.filter()` method on a `Signal` instance.
+For example:
+
+```rust
+use libredsp::signal::Signal;
+use libredsp::types::TransferFunction;
+fn main() {
+    let signal = Signal::new(vec![1.0, 0.0, 0.0, 0.0]);
+    println!("Signal: {:?}", signal.clone().to_vec());
+
+    let filter_coef = TransferFunction::new(vec![1.0, 0.5], vec![1.0, 0.3]);
+    let output = signal.filter(&filter_coef);
+    println!("Output: {:?}", output);
+}
+```
+The output is:
+```
+Signal: [1.0, 0.0, 0.0, 0.0]
+Output: Signal { data: [1.0, 0.2, -0.06, 0.018] }
+```
+
 In the code above TransferFunction receives the numerator and denominator coefficients as the first and second argument in the `::new(...)` function.
 
 Note that for a given set of coefficients of a filter, to obtain the output, we can either plug in \\(x[n]\\) in the LCCDE expression, which is exactly how `.filter()` computes the output in LibreDSP.
