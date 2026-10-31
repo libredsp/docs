@@ -1,6 +1,6 @@
 # Complex Numbers & Euler's Formula
 Many mathematical operations performed in DSP involve complex number.
-In this chapter, provides a general overview about these numbers and their connection to what's known as complex exponentials.
+In this chapter, provides a general overview about these numbers and discusses their connection to what's known as complex exponentials.
 
 A complex number is a number that has the general form
 \\[
