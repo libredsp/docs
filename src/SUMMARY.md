@@ -9,9 +9,10 @@ Another example of a discrete-time signal is audio sampled and stored as a WAV f
 In DSP, we apply a wide range of algorithm and techniques on these sampled values.
 Generally, these methods can be categorized into two major categories.
 One is the transform and operations based on the theory of what's called the **Fourier Analysis**.
-The second type which is called the **statistical DSP**, deals with algorithms for random signals.
+The second type which is called the **statistical DSP**, deals with algorithms developed for random signals.
 Random signal, in contrast to deterministic signals, are the ones that are not known in advanced and can have different values upon realization.
-The chapters below provide the general theory behind the common DSP algorithms and discuss how they can be applied via the LibreDSP library.
+
+The chapters below provide the general theory behind the common DSP algorithms and how they can be applied via the LibreDSP library.
 
 - [Chapter 1: Introduction](./SUMMARY.md)
 - [Chapter 2: Complex Numbers & Euler's Formula](./chapter_2.md)
