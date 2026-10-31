@@ -1,6 +1,6 @@
 # Introduction
 
-This repo provides a general information about Digital Signal Processing (DSP) alongside a general guide on how to use the LibreDSP library.
+This repo provides general information about Digital Signal Processing (DSP) alongside a short guide on how to use the LibreDSP library.
 
 Digital Signal Processing (DSP) is the study of techniques and algorithms used to analyze, transform, and synthesize ***discrete-time signals***.
 A discrete-time signal is simply a sequence of numbers, and each individual number is called a ***sample***.
