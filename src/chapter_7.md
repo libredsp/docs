@@ -56,7 +56,7 @@ The figure below shows a noisy signal (labled "Generated signal") alongside the 
   <figcaption>Figure 1: An application of low-pass filter in de-noising signals.</figcaption>
 </figure>
 
-(The figure above was captured from [libredsp.github.io/workspace](libredsp.github.io/workspace))
+(The figure above was captured from [libredsp.github.io/workspace](https://libredsp.github.io/workspace))
 
 For an ideal low-pass filter, the DTFT of the impulse response is as follows:
 
