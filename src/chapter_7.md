@@ -41,13 +41,24 @@ Output: Signal { data: [1.0, 0.2, -0.06, 0.018] }
 
 In the code above TransferFunction receives the numerator and denominator coefficients as the first and second argument in the `::new(...)` function.
 
-Note that for a given set of coefficients of a filter, to obtain the output, we can either plug in \\(x[n]\\) in the LCCDE expression, which is exactly how `.filter()` computes the output in LibreDSP.
+Note that for a given set of coefficients of a filter, to obtain the output, we can plug in \\(x[n]\\) in the LCCDE expression, which is exactly how `.filter()` computes the output in LibreDSP.
 As we saw in the previous chapter, mathematically, an equivalent way is to find the output of the filter for the delta or impulse function \\(\delta[n]\\) which is called the **impulse response**.
 Afterwards, convolving an arbitrary input signal \\(x[n]\\) with the impulse response gives us the output of the filter, \\(y[n]\\).
 
 
 As a concrete example of a frequency-selective filter, assume that we want to have a filter that passes low frequencies of the input and blocks the others.
-The DTFT of the impulse response of such filter would ideally be:
+These filters are called "low-pass" filters.
+One application of these filters is to de-noise the noisy measurement we obtained from noisy sensors.
+The figure below shows a noisy signal (labled "Generated signal") alongside the de-noised data (labled as "Filtered signal"), which is obtained by passing the signal to a low-pass filter.
+
+<figure style="text-align: center;">
+  <img src="assets/7/sensor.png" alt="The graph of an ideal low-pass filter." style="display: block; margin: 0 auto;" width="500">
+  <figcaption>Figure 1: An application of low-pass filter in de-noising signals.</figcaption>
+</figure>
+
+(The figure above was captured from [libredsp.github.io/workspace](libredsp.github.io/workspace))
+
+For an ideal low-pass filter, the DTFT of the impulse response is as follows:
 
 \\[
 H(e^{j\omega}) =
@@ -61,9 +72,10 @@ where \\(\omega_c\\) is the cutoff frequency, between \\(0\\) and \\(\pi\\).
 This is also called the "brick-wall" filter, because it completely passes frequencies before a certain cutoff frequency and blocks the others.
 
 The graph of this function is depicted below:
+
 <figure style="text-align: center;">
   <img src="assets/7/ideal.png" alt="The graph of an ideal low-pass filter." style="display: block; margin: 0 auto;" width="500">
-  <figcaption>Figure 1: The graph of an ideal low-pass filter.</figcaption>
+  <figcaption>Figure 2: The graph of an ideal low-pass filter.</figcaption>
 </figure>
 
 A few notes about the ideal low-pass filter.
@@ -248,7 +260,7 @@ The magnitude and phase of this filter is depicted below:
 
 <figure style="text-align: center;">
   <img src="assets/7/lp.png" alt="The graph of the linear phase filter." style="display: block; margin: 0 auto;" width="500">
-  <figcaption>Figure 2: The graph of the linear phase filter.</figcaption>
+  <figcaption>Figure 3: The graph of the linear phase filter.</figcaption>
 </figure>
 
 As the figure shows, the filter is a low-pass filter.
