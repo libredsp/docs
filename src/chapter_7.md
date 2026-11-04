@@ -79,7 +79,7 @@ The graph of this function is depicted below:
 </figure>
 
 A few notes about the ideal low-pass filter.
-Firstly, as the figure shows, we typically plot the DTFT of the impulse response only from \\(0\\) to \\(\pi\\), because the DTFT is \\(2\pi\\)-periodic and, for real-valued signals and systems, we have \\(H(e^{-j\omega}) = H^*(e^{j\omega})\\), so we only plot from \\(0\\) to \\(\pi\\).
+Firstly, as the figure shows, we typically plot the DTFT of the impulse response only from \\(0\\) to \\(\pi\\), because the DTFT is \\(2\pi\\)-periodic and, for real-valued signals and systems, we have \\(H(e^{-j\omega}) = H^*(e^{j\omega})\\).
 Moreover, the DTFT of the impulse response we saw above is in its **ideal** form.
 It can be mathematically shown that such a filter is practically not realizable.
 Specifically, the output of such a filter is computed by convolving the input signal \\(x[n]\\) in the time domain with the impulse response of this filter.
