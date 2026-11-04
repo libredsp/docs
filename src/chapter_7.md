@@ -272,21 +272,22 @@ The summary of each method is briefly mentioned below:
 1. **The windowing method:** In this method, the program first obtains the impulse response of the ideal filter we would like to design, then shifts it in time by half the filter length, and multiplies the signal, element-wise, with a "window" function.
 This results in a causal and realizable filter.
 The act of multiplying the impulse response by the window function in time, corresponds to convolution of the spectrum of the window with the ideal filter.
-Therefore, the larger the number of filter weights are, the larger the window would be, and the narrower its spectrum is.
+Therefore, the larger the number of filter weights are, the larger the window would be, and the narrower its spectrum is (the uncertainty principle).
 As a consequence, we get a filter whose frequency response is closer to the desired frequency response.
+However, the larger the filter size means the larger the lag in the output of the filter.
 
-2. **Zero-pole placement method:** The program receives the locations of the poles and zeroes of the Z-transform function of the desired filter, and then it gives the filter coefficients that correspond to that transfer function.
-This method, can be helpful to visually design filters.
+3. **Zero-pole placement method:** The program receives the locations of the poles and zeroes of the Z-transform function of the desired filter, and then it gives the filter coefficients that correspond to that transfer function.
+This method can be helpful to visually design filters.
 For instance, putting poles near \\(\omega=0\\) and zeros around \\(\omega=\pi\\) will design a low pass filter.
 
-3. **Analog-to-digital transformation:** For this method, the program after receiving the desired filter specification, constructs an analog filter and then discretizes it using bilinear transform.
-This method gives us great filters with a very few coefficients like 3 or 4.
+4. **Analog-to-digital transformation:** For this method, the program after receiving the desired filter specification, constructs an analog filter and then discretizes it using bilinear transform.
+This method gives us great filters (in terms of the magnitude of the impulse response) even with a very few coefficients like with the size of 3 or 4.
 However, as we discussed in the last subsection, they do not have linear phase.
 
-4. **Least-squares linear phase FIR filters:** The program finds the FIR filter coefficients that minimizes the square error between the designed filter and the desired filter.
+5. **Least-squares linear phase FIR filters:** The program finds the FIR filter coefficients that minimizes the square error between the designed filter and the desired filter.
 The program additionally can accept weighting that can weight the importance of different regions of the desired frequency segments.
 
-5. **Parks-McClellan algorithm:** The program designs a 'equiripple' FIR filter using the Parks-McClellan algorithm which is essentially the Remez exchange algorithm applied to the filter design problem. The 'equiripple' property of the filter means that the errors between the designed filter and the desired filter attains a fixed maximum value related to the filter length.
+6. **Parks-McClellan algorithm:** The program designs a 'equiripple' FIR filter using the Parks-McClellan algorithm which is essentially the Remez exchange algorithm applied to the filter design problem. The 'equiripple' property of the filter means that the errors between the designed filter and the desired filter attains a fixed maximum value related to the filter length.
 
 The following code snippet designs a filters via LibreDSP using different methods:
 
