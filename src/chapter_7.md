@@ -270,7 +270,7 @@ In LibreDSP, both FIR and IIR filters with various techniques can be designed.
 The summary of each method is briefly mentioned below:
 
 1. **The windowing method:** In this method, the program first obtains the impulse response of the ideal filter we would like to design, then shifts it in time by half the filter length, and multiplies the signal, element-wise, with a "window" function.
-The window function in the simplest form can simply be the rectangle function.
+The window function in the simplest form is the rectangle function.
 The result of multiplying the shifted impulse response with the window function is a causal impulse response.
 To obtain the output of the filter we then convolve an input signal with this causal impulse response.
 In terms of the DTFT of the output of the filter, the act of multiplying the impulse response by the window function in time, corresponds to convolution of the spectrum of the window with the ideal filter.
