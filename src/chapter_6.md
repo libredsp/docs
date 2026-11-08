@@ -110,12 +110,7 @@ y[n] = 0.5y[n-1] + x[n]
 with the initial condition \\(y[-1] = 0\\).
 
 To solve this LCCDE via unilateral Z-transform, we can apply Z-transform on both sides of the equation and use the shifting property.
-Note that, by doing so, we are implicitly assuming that \\(y[n]\\) and \\(x[n]\\) have valid Z-transforms.
-\\(x[n]\\) is the input and the existence of its Z-transform is not up to us.
-If we are dealing with reasonable, physical signals as input, then their Z-transform exists.
-As for \\(y[n]\\), as long as the input is exponentially bounded, the solution \\(y[n]\\) to such LCCDE is exponentially bounded and has a valid Z-transform
-(refer to [1], for the proof of this).
-Hence, applying Z-transform to both sides and isolating \\(Y(z)\\) we get:
+For the example, applying Z-transform to both sides and isolating \\(Y(z)\\) we get:
 
 \\[
 Y(z)=0.5z^{-1}Y(z) + 0.5z^{-1}y[-1] + X(z)
@@ -160,11 +155,9 @@ The inverse is unique by the uniqueness theorem of the Z-transform, which states
 This gives us
 
 \\[
-y[n]=(2-(0.5)^n)u[n].
+y[n]=2-(0.5)^n
 \\]
 
-### The Relation Between Unilateral Z-transform and DTFT
-LCCDE with initial conditions are problems that, inherently, have solutions that are valid for \\(n \ge 0\\).
 For the readers who are familiar with differential equations, this similar to initial value problems (IVPs) where the solutions are valid for example for \\(t \ge 0\\).
 That being said, for LCCDEs, if we assume that \\(y[n]\\) and \\(x[n]\\) are zeros for \\(n<0\\), then the bilateral and unilateral Z-transform of those signals become the same (by the definition):
 
@@ -189,7 +182,42 @@ H(e^{j\omega}) = \frac{Y(e^{j\omega})}{X(e^{j\omega})} = \frac{\sum_{k=0}^{M} b_
 \\]
 Such systems are also called ***frequency-selective digital filters***. 
 
-> **Note 1:** We can replace \\(z = e^{j\omega}\\) in the Z-transform and get the DTFT of the signal only if the corresponding \\(x[n]\\) is absolutely summable:
+> **Note 1:** When applying the Z-transform to both sides of the LCCDE, we implicitly assumed that \\(y[n]\\) and \\(x[n]\\) have valid Z-transforms, each with some ROC (for example, by being absolutely summable).
+> We then isolate \\(Y(z)\\) and find the time-domain function corresponding to \\(Y(z)\\), either by looking it up in a Z-transform table or by using the inverse Z-transform formula.
+> In this process, whether the input $x[n]$ has a valid Z-transform depends on whether we choose a physically realizable and reasonable signal. For such inputs, \\(X(z)\\) exists.
+> For the solution \\(y[n]\\), we assume that it has a valid Z-transform with some ROC.
+> We then carry out the steps described above, find \\(Y(z)\\), and compute its inverse \\(y[n]\\).
+> Therefore, the logical chain is:
+> 
+> \\[
+> A \rightarrow B \rightarrow C
+> \\]
+> 
+> where \\(A\\) is the assumption that \\(y[n]\\) has a valid Z-transform, \\(B\\) is the equation containing the Z-transform of both sides of the LCCDE, and \\(C\\) is the time-domain expression for \\(y[n]\\).
+> In this chain, assuming \\(y[n]\\) has a valid Z-transform (\\(A\\)) eventually leads to a solution (\\(C\\).
+> Since the Z-transform is a one-to-one mapping, every step is reversible.
+> This means that once we have found the solution, we can conclude:
+> 
+> \\[
+> C \rightarrow B \rightarrow A
+> \\]
+> 
+> To contrast this with a transform that is not one-to-one, start from the equation:
+> 
+> \\[
+> x = 2$$
+> \\]
+> 
+> If the transform is \\(T(x) = x^2\\), we get:
+> 
+> \\[
+> x^2 = 4
+> \\]
+> 
+> In other words, \\(x = 2\\) implies \\(x^2 = 4\\), but \\(x^2 = 4\\) does not imply \\(x = 2\\), since \\(x\\) could also be \\(-2\\).
+>  
+
+> **Note 2:** We can replace \\(z = e^{j\omega}\\) in the Z-transform and get the DTFT of the signal only if the corresponding \\(x[n]\\) is absolutely summable:
 > \\[
 > \sum_{n=-\infty}^{\infty} |x[n]| < \infty.
 > \\]
@@ -197,7 +225,7 @@ Such systems are also called ***frequency-selective digital filters***.
 > 
 > For the Z-Transform expressions that have a rational form, it can be shown that to safely do the substitution \\(z = e^{j\omega}\\) we can look at the poles (roots of the denominator of the Z-transform) and checking whether their magnitude is less than \\(1\\).
 
-> **Note 2:** When someone hands us a Z-transform expression and asks us to find the time-domain equivalent, as we just saw with the example, if the expression was obtained via unilateral Z-transform, then there is one unique signal in the time-domain that gives us that Z-transform expression.
+> **Note 3:** When someone hands us a Z-transform expression and asks us to find the time-domain equivalent, as we just saw with the example, if the expression was obtained via unilateral Z-transform, then there is one unique signal in the time-domain that gives us that Z-transform expression.
 > As we briefly mentioned in the previous subsection, this is not the case if the expression was obtained via bilateral Z-transform.
 > For instance, if the expression \\(H(z) = \frac{1}{1-0.5z^{-1}} \\) is obtained via bilateral Z-transform, both the signal
 > \\[
@@ -210,6 +238,3 @@ Such systems are also called ***frequency-selective digital filters***.
 > are valid time-domain signals that give us that Z-transform. The only thing that differentiates them is their corresponding ROC.
 > For the first case, the ROC is \\( |z| > 0.5 \\) and for the latter is \\( |z| < 0.5 \\).
 > Since, by definition, the sum in the unilateral Z-transform is from \\(n = 0\\) until \\(n = \infty \\), only the first sequence can give us that Z-transform expression.
-
-# References
-[1] Kelley, Walter G., and Allan C. Peterson. *Difference equations: an introduction with applications*. Academic Press, 2001
