@@ -1,7 +1,7 @@
 # Chapter 8 - Digital Fitler Design: The Windowing Method
 
 The last chapter introduced a several digital filter design techniques.
-In this chapter, we will look at the windowing method in particular.
+In this chapter, we will look at the windowing method in detail.
 The windowing method is the simplest filter design techniques and can provides a basis to understand other filter design techniques.
 The windowing method allows us to design FIR filters with linear phase.
 

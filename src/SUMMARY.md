@@ -22,7 +22,8 @@ The chapters below provide the general theory behind the common DSP algorithms a
 - [Chapter 6: Z-Transform & Frequency-Selective Digital Filters](./chapter_6.md)
 - [Chapter 7: Digital Filter Design](./chapter_7.md)
 - [Chapter 8: Digital Filter Design: The Windowing Method](./chapter_8.md)
-- [Chapter 9: TBD]()
+- [Chapter 9: Statistical Filters](./chapter_9.md)
+- [Chapter 10: TBD]()
 
 ## License
 This document is licensed under Creative Commons Attribution-ShareAlike 4.0 International.
