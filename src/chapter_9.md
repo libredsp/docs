@@ -34,9 +34,9 @@ For now, though, assume we know the underlying statistics of the signals and the
 
 Also note that the desired signal \\(d[n]\\), depending on the problem, can be assumed to be any random signal.
 As a concrete example, assume that we have a system, such as an acoustic medium through which sound can propagate.
-With some modeling assumptions^[1], we would like to find the "system coefficients" that describe the dynamics of the system.
-
-^[1]: An assumption commonly made for such systems is that they are Linear and Time-Invariant (LTI). This means that the principle of superposition holds for such systems. A linear combination of different inputs produces the same linear combination in the output.
+With some modeling assumptions[^1], we would like to find the "system coefficients" that describe the dynamics of the system.
+[^1]: An assumption commonly made for such systems is that they are Linear and Time-Invariant (LTI).
+This means that the *principle of superposition* holds for such systems, meaning that a linear combination of different inputs produces the same linear combination in the output.
 
 For such a system, the input is a random signal that we pass through the system, and the output is the signal we collect from it.
 For statistical filter design, we would then like to design a filter such that, when the input signal is given to the statistical filter, it produces the same output as we obtained from the system.
@@ -98,13 +98,13 @@ W^*=R^{-1}p
 \\]
 
 where \\(R^{-1}\\) is the inverse of the auto-correlation matrix \\(R\\), and \\(p\\) is the cross-correlation vector, provided \\(R\\) is invertible.
+Such optimal solution is called the ***Wiener solution***.
 
-Now, a note about obtaining \\(R\\) and \\(p\\).
+## Some note about \\(R\\) and \\(p\\)
 
-As we have seen, the entries of the matrices \\(R\\) and \\(p\\) contain expected values.
-Computing these terms, as we said at the beginning of the subsection, requires knowledge of the statistical distributions that the random signals obey.
+As we have seen, the entries of the matrices \\(R\\) and \\(p\\) contain expected values \\(E[...]\\).
+Computing these terms, as we said in the previous subsection, requires knowledge of the statistical distributions of the random signals.
 In practice, we often do not know them and merely have a finite amount of data from such signals.
-
 To estimate these expressions using the data we collect, we then impose two assumptions in the statistical filter design problem:
 
 (i) The signals are *jointly wide-sense stationary (WSS)*, meaning that their means are constant and their auto-correlation and cross-correlation depend only on the "lag", i.e., the difference between the two indices.
@@ -128,7 +128,8 @@ R_{dx}[r]=E[d[n]x[n-r]]
 
 Here, samples outside \\(0,\\ldots,N-1\\) are unavailable, and the \\(1/N\\) factor makes these the biased estimators.
 
-The optimal solution we have derived is also called the ***Wiener solution***.
+
+## Wiener solution versus other statistical fitlers
 The Wiener solution relies on inverting the matrix \\(R\\), which can be large in practice.
 However, inverting that matrix and multiplying it by the vector \\(p\\) yields the optimal solution in "one shot".
 If the statistics of the random signals are constantly changing, we should compute the Wiener solution iteratively on chunks of data, for instance, in fixed time intervals.
@@ -153,6 +154,7 @@ If the statistics of the random signals stay constant, the LMS solution eventual
 There are a variety of statistical and adaptive algorithms, such as Newton-LMS and RLS.
 Each algorithm has its own strengths and weaknesses, and there are tradeoffs that should be considered before choosing one.
 
+## Obtaining statistical filters in LibreDSP
 The following code demonstrates using the LibreDSP library to obtain Wiener filter that recovers the coefficients of an unknown filter.
 
 ```rust

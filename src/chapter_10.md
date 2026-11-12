@@ -87,6 +87,9 @@ Once the logistic regression finds a set of coefficients that classifies the tra
 This is supported by a subject known as "learning theory".
 Roughly, it tells us that if the data used in training and usage come from the same distribution (and there is enough training data), then with high probability the error on the training data is close to the error computed in practice on the new data.
 
+Even though logistic regression is not always the most accurate algorithm, it is easy to understand, computationally light, and usually requires less data to train compared to other ML algorithms like the *artificial neural network (ANN)*.
+This algorithm can also be used as a baseline to compare the efficacy of more advanced ML algorithms.
+
 ## Training Logistic Regression in LibreDSP for VAD
 To train the logistic regression model for VAD, you can execute the following command:
 
