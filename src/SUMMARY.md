@@ -3,7 +3,7 @@
 This repo provides general information about Digital Signal Processing (DSP) alongside a short guide on how to use the LibreDSP library.
 
 Digital Signal Processing (DSP) is the study of techniques and algorithms used to analyze, transform, and synthesize ***discrete-time signals***.
-A discrete-time signal is simply a sequence of numbers, and each individual number is called a ***sample***.
+A discrete-time signal is simply a sequence of numbers, where each individual number is called a ***sample***.
 An example of a discrete-time signal is the temperature data captured by a microcontroller from a sensor every \\(T\\) seconds.
 Another example of a discrete-time signal is audio sampled and stored as a WAV file.
 In DSP, we apply a wide range of algorithm and techniques on these sampled values.
