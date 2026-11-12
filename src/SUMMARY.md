@@ -6,11 +6,12 @@ Digital Signal Processing (DSP) is the study of techniques and algorithms used t
 A discrete-time signal is simply a sequence of numbers, where each individual number is called a ***sample***.
 An example of a discrete-time signal is the temperature data captured by a microcontroller from a sensor every \\(T\\) seconds.
 Another example of a discrete-time signal is audio sampled and stored as a WAV file.
-In DSP, we apply a wide range of algorithm and techniques on these sampled values.
+
+In DSP, we apply a wide range of algorithm and techniques on discrete-time signals.
 Generally, these methods can be categorized into two major categories.
 One is the transform and operations based on the theory of what's called the **Fourier Analysis**.
-The second type which is called the **statistical DSP**, deals with algorithms developed for random signals.
-Random signal, in contrast to deterministic signals, are the ones that are not known in advanced and can have different values upon realization.
+The second type which is called the **statistical DSP**, that deals with algorithms developed for *random signals*.
+Random signal, in contrast to "deterministic signals", are the ones that are not known in advanced and follow some statistical distributions instead.
 
 The chapters below provide the general theory behind the common DSP algorithms and how they can be applied via the LibreDSP library.
 
